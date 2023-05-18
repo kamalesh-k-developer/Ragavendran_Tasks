@@ -1,0 +1,31 @@
+
+body{ 
+    background-color: burlywood !important;
+    padding: 50;
+    margin: 50;
+}
+h1{
+    color: red !important;
+}
+form{
+    background-color: whitesmoke;
+    padding: 25px;
+    margin: 75px  auto ;
+    height:min-content;
+    width: 400px;
+    
+
+    
+}
+.submit{
+    width: 10% !important;
+    margin: 20px !important;
+    height: 50px !important;
+    padding-right: 30%;
+
+}
+.date{
+    text-align: center;
+}.dd{
+    padding-right: 30%;
+}
