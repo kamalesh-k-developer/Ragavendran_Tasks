@@ -57,7 +57,13 @@ include 'connect.php';
     <td>'.$gender.'</td>
     <td>'.$dob.'</td>
     <td>'.$qualification.'</td>
-    </tr>';
+    <td>
+    <button class= "btn btn-primary"> <a href="update.php? updateid='.$id.'" class= "text-light">update </a></button>
+    <button class = "btn btn-danger" ><a href="delete.php?deleteid= '.$id.'" class= "text-light">delete </a></button>
+
+  </td>
+  </tr>';
+  
       }
     }
     ?>
