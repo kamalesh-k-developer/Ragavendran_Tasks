@@ -8,11 +8,15 @@ if (isset($_POST['save'])) {
     $count = mysqli_num_rows($result);
     if ($count > 0) {
         echo "Login successful";
+         header('location:dashboard.php');
     } else {
         echo "Invalid details ";
     }
 }
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,86 +1,59 @@
-<?php
-include 'connect.php';
-$result="";
-if (isset($_POST['submit'])) {
-    // var_dump($_POST);
-    $firstname = $_POST['firstname'];
-    $password = $_POST['password'];
-    $email = $_POST['email'];
-    $number = $_POST['number'];
-    $gender = $_POST['gender'];
-    $dob = $_POST['dob'];
-    $qualification = $_POST['qualification'];
-
-
-    $sql = "INSERT INTO registration(firstname,password,email,number, gender,dob,qualification) VALUES ('$firstname', '$password', '$email', '$number','$gender' ,'$dob', '$qualification')";
-    if (mysqli_query($conn, $sql)) {
-         echo "New record created successfully";
-        //  $result = "test";
-    } else {
-        //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
-
-    mysqli_close($conn);
-}
-?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Form Data Using Ajax</title>
     <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="bootstrap.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 </head>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="action.js"></script>
+  
 <body>
-    <div class="container">
-        <!-- <span class="result"><?php $result ?></span> -->
-        <form action=" " method="post" enctype="multipart/form-data">
-            <h3>Registration Form</h3>
-            <div>
-                <label for="Inputname" class="form-label">username</label>
-                <input type="text" class="form-control" placeholder="entername" id="Inputname" name="firstname">
-            </div>
-            <div>
-                <label for="inputpassword" class="form-label">Password</label>
-                <input type="password" class="form-control" placeholder="enterpassword" id="inputPassword" name="password">
-            </div>
-            <div>
-                <label for=" confirm password" class="form-label">confirm password</label>
-                <input type="text" class="form-control" placeholder="enterpassword" id=" confirm password" name="confirmpassword">
-            </div>
+  
 
+            <form action="#" method="post" id="manage_user">
+              <div class="form-group">
+                <h2>Registration form</h2>
+                <label for="name">Username</label>
+                <input type="text" class="form-control " name="firstname" placeholder="Enter Username">
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control " name="password" placeholder="**********">
+              </div>
+               <div class="form-group">
+                <label > Email</label>
+                <input type="email" class="form-control " name="email" placeholder="test@gmail.com">
+              </div>
+              <br>
 
+                            <div class="form-group">
+                              <label >Number</label>
+                <input type="text" class="form-control " name="number" placeholder="Enternumber">
+              </div>
+              <br>
+              
+              <!-- <br> -->
+                <label>Gender:</label>
+            <div class=" px-5">
 
-            <div>
-                <label for="Email" class="form-label">email</label>
-                <input type="text" class="form-control" placeholder="enteremail" id="InputEmail" name="email">
-            </div>
-            <div>
-                <label for="number" class="form-label">Number</label>
-                <input type="text" class="form-control" placeholder="enternumber" id="Inputnumber" name="number">
-            </div>
-            <label>Gender:</label>
-            <div class="px-5">
-                
                 <input type="radio" class="form-check-input"  name="gender" id="flexRadioDefault1" value="male" checked>
                 <label class="form-check-label" for="flexRadioDefault">Male </label>
                 <input type="radio" class="form-check-input"  name="gender" id="flexRadioDefault2" value="female">
                 <label class="form-check-label" for="flexRadioDefault"> Female</label>
             </div>
-            
+
 
             <div class="px--2">
                 <label>Date of Birth:</label><br>
                 <div class="px-5">
                     <input type="date" class=" form-control" id="exampleCheck1" name="dob">
-                    D.O.B
+                  
 
 
                 </div>
@@ -96,14 +69,20 @@ if (isset($_POST['submit'])) {
                     </select><br>
 
                 </div>
-                <center>
-                    <div class="submit ">
-                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-                </center>
+                
+                <div><label > Uploadimage</label>
+                 <input type="file" id="myFile" name="file">
             </div>
 
-        </form>
-    </div>
+              <div id="error_msg"></div
+              <div class="form-group">
+                <center>
+                <button class="btn btn-primary" type="submit">Submit</button>
+                </center>
+              </div> 
+            </form>
+        </div>
+      </div>
+   
 </body>
-
 </html>

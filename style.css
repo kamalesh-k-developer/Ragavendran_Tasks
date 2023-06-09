@@ -29,3 +29,30 @@ form{
 }.dd{
     padding-right: 30%;
 }
+ul {
+  list-style-type: none;
+ overflow: hidden;
+  background-color: lightcoral;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover{
+  background-color: black;
+}
+
+
+.dashboard{
+    height: 740px;
+    background-color: white;
+}

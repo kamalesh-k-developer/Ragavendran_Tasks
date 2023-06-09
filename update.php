@@ -1,5 +1,7 @@
 <?php
 include 'connect.php';
+extract($_POST);
+
 $id=$_GET['updateid'];
 $sql= "SELECT * from registration where id=$id";
 $result =  mysqli_query($conn,$sql);
@@ -28,7 +30,7 @@ if (isset($_POST['submit'])) {
     $sql =" UPDATE registration set id= $id, firstname='$firstname',password='$password',email='$email', number='$number',gender='$gender', dob='$dob',qualification='$qualification' WHERE id=$id ";
     $result =  mysqli_query($conn,$sql);
     if ($result) {
-         header('location:dashboard.php');
+        //  header('location:dashboard.php');
      echo "updated successfully";
         
     } else {
@@ -109,6 +111,10 @@ if (isset($_POST['submit'])) {
                     </select><br>
 
                 </div>
+                <div>  <label ></label>
+                 <input type="file" id="myFile" name="filename">
+  
+            </div>
                 <center>
                     <div class="submit ">
                         <button type="submit" class="btn btn-primary" name="submit">update</button>
