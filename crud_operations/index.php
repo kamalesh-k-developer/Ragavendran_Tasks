@@ -1,8 +1,8 @@
 <?php
 include 'connect.php';
-$result="";
+
 if (isset($_POST['submit'])) {
-    // var_dump($_POST);
+   
     $firstname = $_POST['firstname'];
     $password = $_POST['password'];
     $email = $_POST['email'];
@@ -12,12 +12,13 @@ if (isset($_POST['submit'])) {
     $qualification = $_POST['qualification'];
 
 
-    $sql = "INSERT INTO registration(firstname,password,email,number, gender,dob,qualification) VALUES ('$firstname', '$password', '$email', '$number','$gender' ,'$dob', '$qualification')";
+    $sql = "INSERT INTO registration (firstname, password, email, number, gender, dob, qualification) VALUES ('$firstname', '$password', '$email', '$number','$gender' ,'$dob', '$qualification')";
     if (mysqli_query($conn, $sql)) {
          echo "New record created successfully";
-        //  $result = "test";
+         header('location:dashboard.php');
+       
     } else {
-        //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
     mysqli_close($conn);
@@ -27,7 +28,7 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-5">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="style.css"> 
@@ -41,7 +42,7 @@ if (isset($_POST['submit'])) {
 <body>
     <div class="container">
         <!-- <span class="result"><?php $result ?></span> -->
-        <form action=" " method="post" enctype="multipart/form-data">
+        <form action=" " method="POST" enctype="multipart/form-data">
             <h3>Registration Form</h3>
             <div>
                 <label for="Inputname" class="form-label">username</label>
