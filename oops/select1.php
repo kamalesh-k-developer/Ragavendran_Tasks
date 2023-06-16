@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include 'connect1.php';
 $obj = new database();
 ?>
 <!doctype html>
@@ -13,7 +13,7 @@ $obj = new database();
   <body>
     <div class="container">
   <table class="table">
-    <button  class="btn btn-primary"><a href="index.php" class="text-light">Add User</a> </button>
+    <button  class="btn btn-primary"><a href="index1.php" class="text-light">Add User</a> </button>
   <thead>
     <tr>
       <th scope="col">Id</th>
@@ -41,8 +41,8 @@ if($result){
     <td>'.$dob.'</td>
     <td>'.$password.'</td>
     <td>
-    <button class="btn btn-primary"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
-    <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
+    <button class="btn btn-primary"><a href="update1.php?updateid='.$id.'" class="text-light">Update</a></button>
+    <button class="btn btn-danger"><a href="delete1.php?deleteid='.$id.'" class="text-light">Delete</a></button>
     </td>
   </tr>';
   $sno++;

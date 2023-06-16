@@ -1,5 +1,5 @@
      <?php
-include 'connect.php';
+include 'connect1.php';
 $obj = new database();
 $id = $_GET['updateid'];
 $fetchRecord = $obj->displayRecordWithId($id);

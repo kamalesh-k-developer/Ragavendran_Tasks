@@ -89,7 +89,9 @@
             url:"ajax_action.php",
             type:"post",
             data:$("#frm").serialize(),
-            
+            // beforeSend:function(){
+            //   $("#frm").find("input[type='submit']").val('Loading...');
+            // },
             success:function(res){
               if(res){
                 if($("#uid").val()=="0"){
@@ -100,7 +102,7 @@
               }else{
                 alert("Failed Try Again");
               }
-              
+              // $("#frm").find("input[type='submit']").val('Submit');
               clear_input();
               $("#modal_frm").modal('hide');
             }
@@ -132,7 +134,9 @@
               url:"ajax_action.php",
               type:"post",
               data:{uid:id,action:'Delete'},
-              
+              // beforeSend:function(){
+              //   $(cls).text("Loading...");
+              // },
               success:function(res){
                 if(res){
                   $(cls).closest("tr").remove();

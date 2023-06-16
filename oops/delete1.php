@@ -1,5 +1,5 @@
 <?php   
-include  'connect.php';
+include  'connect1.php';
 $obj = new database();
 if(isset($_GET['deleteid']))
 {

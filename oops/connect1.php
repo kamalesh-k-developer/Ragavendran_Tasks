@@ -28,7 +28,7 @@ public function insertRecord($post) {
   $sql = "INSERT INTO crud (name,email,dob,password)  VALUES ('$name','$email','$dob','$password')";
   $result = $this->connection->query($sql);
   if($result){
-    header('location:select.php?msg=ins');
+    header('location:select1.php');
   }
 }
 public function displayRecord(){
@@ -57,14 +57,14 @@ public function updateRecord($post){
   $sql = "UPDATE crud SET name = '$name',email = '$email', dob = '$dob',password = '$password' WHERE id = $id ";
   $result = $this->connection->query($sql);
   if($result){
-    header ("location:select.php");
+    header ("location:select1.php");
   }
 }
    public function deleteRecord($id){
    $sql = "  DELETE FROM crud WHERE id = $id";
    $result = $this->connection->query($sql);
    if($result){
-    header('location:select.php');
+    header('location:select1.php');
    }
   }
 public function displayRecordWithId($id){

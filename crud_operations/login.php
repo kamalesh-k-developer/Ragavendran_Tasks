@@ -8,15 +8,11 @@ if (isset($_POST['save'])) {
     $count = mysqli_num_rows($result);
     if ($count > 0) {
         echo "Login successful";
-         header('location:dashboard.php');
     } else {
         echo "Invalid details ";
     }
 }
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,7 +58,7 @@ if (isset($_POST['save'])) {
 
                 <div class="signup_link mb-5">
                     Didn't have an account? <br>
-                    <a href="http://localhost/Ragavendran_Tasks/index.php">signup</a>
+                    <a href="index.php">signup</a>
                 </div>
             </center>
             <form>
